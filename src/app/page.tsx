@@ -1,103 +1,131 @@
-import Image from "next/image";
+'use client'
+
+import React from 'react'
+import Link from 'next/link'
+import ProjectCard from './components/ProjectCard'
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const projects = [
+    {
+      title: "E-commerce Platform",
+      description: "A full-stack e-commerce platform built with Next.js and Stripe integration. Features include user authentication, product management, shopping cart, and secure checkout.",
+      imageUrl: "/project1.jpg",
+      technologies: ["Next.js", "TypeScript", "Stripe", "MongoDB"],
+      projectUrl: "https://ecommerce-demo.vercel.app",
+      githubUrl: "https://github.com/johndoe/ecommerce-platform"
+    },
+    {
+      title: "Task Management App",
+      description: "A collaborative task management application with real-time updates, drag-and-drop interface, and team collaboration features.",
+      imageUrl: "/project2.jpg",
+      technologies: ["React", "Node.js", "Socket.IO", "PostgreSQL"],
+      projectUrl: "https://taskmanager-demo.vercel.app",
+      githubUrl: "https://github.com/johndoe/task-manager"
+    },
+    {
+      title: "AI Image Generator",
+      description: "An AI-powered image generation tool that creates unique artwork based on text descriptions using OpenAI's DALL-E API.",
+      imageUrl: "/project3.jpg",
+      technologies: ["React", "OpenAI API", "TailwindCSS", "Express"],
+      projectUrl: "https://ai-image-gen.vercel.app",
+      githubUrl: "https://github.com/johndoe/ai-image-generator"
+    }
+  ]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="py-20 px-4 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+          Hi, I'm John Doe
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
+          Full Stack Developer | Web Designer | Tech Innovator
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link 
+            href="#projects" 
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            View Projects
+          </Link>
+          <Link 
+            href="#contact" 
+            className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
           >
-            Read our docs
-          </a>
+            Contact Me
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            About Me
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+            I'm a passionate full-stack developer with expertise in modern web technologies. 
+            With a strong foundation in both front-end and back-end development, I create 
+            seamless, user-friendly applications that solve real-world problems.
+          </p>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            I specialize in React, Next.js, Node.js, and cloud technologies. When I'm not coding, 
+            you can find me contributing to open-source projects or learning new technologies 
+            to stay ahead in this ever-evolving field.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Featured Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <ProjectCard key={index} {...project} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Get In Touch
+          </h2>
+          <p className="text-center text-lg text-gray-600 dark:text-gray-300 mb-8">
+            Interested in working together? Feel free to reach out!
+          </p>
+          <div className="flex justify-center space-x-6">
+            <a
+              href="mailto:john.doe@example.com"
+              className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              Email
+            </a>
+            <a
+              href="https://linkedin.com/in/johndoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/johndoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-  );
-}
+  )
+} 
